@@ -1,7 +1,7 @@
 # Foodgram - Front-end
 
 # 🔗 Foodgram
-<p>🚀 Aplicação voltada para armazenamento e publicação de fotos, voltadas a gastronomia</p>
+<p>🚀 Aplicação voltada para armazenamento e publicação de fotos voltadas a gastronomia</p>
 
 # Status da Aplicação
 <p>🚧 Aplicação em Desenvolvimento</p>
@@ -20,4 +20,4 @@
 - React JS
 - Create React App
 - Styled Components
-- Typescript
+- Javascript
