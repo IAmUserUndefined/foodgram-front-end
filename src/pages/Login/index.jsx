@@ -25,8 +25,8 @@ const Login = () => {
             Entrar
           </Button>
 
-          <FormLink link="register">Ainda não tem um cadastro?</FormLink>
-          <FormLink link="forget-password">Esqueceu sua senha?</FormLink>
+          <FormLink link="/register">Ainda não tem um cadastro?</FormLink>
+          <FormLink link="/forget-password">Esqueceu sua senha?</FormLink>
         </Form>
       </PagesContainer>
     </>
