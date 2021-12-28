@@ -1,9 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
+
+import AppContainer from "./styles/app";
+
+import { AppRoutes } from './routes';
 
 const App = () => {
   return (
       <>
-        <h1>Olá mundo</h1>
+        <BrowserRouter>
+          <AppContainer>
+            <AppRoutes />
+          </AppContainer>
+        </BrowserRouter>
       </>
   );
 }
