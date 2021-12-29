@@ -6,6 +6,10 @@ import Register from './pages/Register';
 import ForgetPassword from './pages/ForgetPassword';
 import Feed from './pages/Feed';
 import Photos from './pages/Photos';
+import ConfigUser from './pages/ConfigUser';
+import RecoverPassword from './pages/RecoverPassword';
+import VerifyEmail from './pages/VerifyEmail';
+import VerifyEmailUpdate from './pages/VerifyEmailUpdate';
 
 export const AppRoutes = () => {
     return ( 
@@ -16,6 +20,10 @@ export const AppRoutes = () => {
                 <Route path="/forget-password" exact element={<ForgetPassword />} />
                 <Route path="/feed" exact element={<Feed />} />
                 <Route path="/photos" exact element={<Photos />} />
+                <Route path="/config-user" exact element={<ConfigUser />} />
+                <Route path="/recover-password" exact element={<RecoverPassword />} />
+                <Route path="/verify-email" exact element={<VerifyEmail />} />
+                <Route path="/update-email" exact element={<VerifyEmailUpdate />} />
             </Routes>
         </>
      );

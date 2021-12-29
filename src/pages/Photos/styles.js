@@ -9,7 +9,7 @@ const UploadImageMessage = styled.div`
     background-color: #fff;
     color: #000;
     border: 1px dotted #000;
-    padding: 30px 0;
+    padding: 1.5rem;
     text-align: center;
     max-width: 1300px;
 `;

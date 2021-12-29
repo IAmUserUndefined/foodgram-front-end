@@ -2,11 +2,11 @@ import React from 'react';
 
 import ButtonStyle from './styles';
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
     return ( 
         <>
             <div>
-                <ButtonStyle>
+                <ButtonStyle onClick={onClick} type="button">
                     {children}
                 </ButtonStyle>
             </div>

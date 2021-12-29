@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ContainerPhoto = styled.div`
-    margin: 1rem auto 2.5rem auto;
+    margin: 2rem auto 2.5rem auto;
     background-color: #fff;
     padding: 2rem;
     display: flex;

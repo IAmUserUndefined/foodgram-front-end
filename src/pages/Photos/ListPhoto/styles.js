@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FileListContainer = styled.div`
+const FileListContainer = styled.div`
     display: flex;
     justify-content: center;
     max-width: 600px;
@@ -23,8 +23,10 @@ export const FileListContainer = styled.div`
     }
 
     >div svg {
+        cursor: pointer;
         width: 50px;
         height: 50px;
+        color: #f00;
     }
 
     @media (max-width: 576px) {
@@ -34,3 +36,5 @@ export const FileListContainer = styled.div`
         }
     } 
 `;
+
+export default FileListContainer;
