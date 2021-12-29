@@ -1,5 +1,8 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
+
+import PublicRoute from "./components/PublicRoute/index";
+import PrivateRoute from "./components/PrivateRoute/index";
 
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -16,15 +19,41 @@ export const AppRoutes = () => {
     return ( 
         <>
             <Routes>
-                <Route path="/" exact element={<Login />} />
-                <Route path="/register" exact element={<Register />} />
-                <Route path="/forget-password" exact element={<ForgetPassword />} />
-                <Route path="/feed" exact element={<Feed />} />
-                <Route path="/photos" exact element={<Photos />} />
-                <Route path="/config-user" exact element={<ConfigUser />} />
-                <Route path="/recover-password" exact element={<RecoverPassword />} />
-                <Route path="/verify-email" exact element={<VerifyEmail />} />
-                <Route path="/update-email" exact element={<VerifyEmailUpdate />} />
+                <Route path="/" element={<PublicRoute />} exact>
+                    <Route path="/" element={<Login />} exact />
+                </Route>
+
+                <Route path="/register" element={<PublicRoute />} exact>
+                    <Route path="/register" element={<Register />} />
+                </Route>
+
+                <Route path="/verify-email" element={<PublicRoute />} exact>
+                    <Route path="/verify-email" element={<VerifyEmail />} exact />
+                </Route>
+
+                <Route path="/forget-password" element={<PublicRoute />} exact>
+                    <Route path="/forget-password" element={<ForgetPassword />} exact />
+                </Route>
+
+                <Route path="/password-recover" element={<PublicRoute />} exact>
+                    <Route path="/password-recover" element={<RecoverPassword />} exact />
+                </Route>
+
+                <Route path="/feed" element={<PrivateRoute />} exact>
+                    <Route path="/feed" element={<Feed />} exact />
+                </Route>
+
+                <Route path="/photos" element={<PrivateRoute />} exact>
+                    <Route path="/photos" element={<Photos />} exact />
+                </Route>
+
+                <Route path="/config-user" element={<PrivateRoute />} exact>
+                    <Route path="/config-user" element={<ConfigUser />} exact />
+                </Route>
+
+                <Route path="/update-email" element={<PrivateRoute />} exact>
+                    <Route path="/update-email" element={<VerifyEmailUpdate/>} exact />
+                </Route>
             </Routes>
         </>
      );
