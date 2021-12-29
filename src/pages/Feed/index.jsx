@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Header from "../../components/Header/index";
-import Photo from "../../components/Photo/index";
+import Photo from "./Photo/index"
 
-const Main = () => {
+const Feed = () => {
     return ( 
         <>
             <Header />
@@ -12,4 +12,4 @@ const Main = () => {
      );
 }
  
-export default Main;
+export default Feed;

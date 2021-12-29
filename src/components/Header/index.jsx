@@ -18,11 +18,11 @@ const Header = () => {
                 <nav>
                     <ul>
                         <li>
-                            <a onClick={() => handleLink("/main")}>Home</a>
+                            <a onClick={() => handleLink("/feed")}>Home</a>
                         </li>
 
                         <li>
-                            <a onClick={() => handleLink("/add-photo")}>Fotos</a>
+                            <a onClick={() => handleLink("/photos")}>Fotos</a>
                         </li>
 
                         <li>
