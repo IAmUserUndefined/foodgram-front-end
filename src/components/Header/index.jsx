@@ -7,7 +7,10 @@ import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
 
 import { HeaderStyle, IconMenu, Navigation, ContainerImage } from "./styles";
 
+import { useAuth } from "../../providers/AuthProvider";
+
 const Header = () => {
+    const { handleLogout } = useAuth();
     const navigate = useNavigate();
     const handleLink = (link) => navigate(link);
     const [left, setLeft] = useState(`${-1000}px`);
@@ -44,7 +47,7 @@ const Header = () => {
                         </li>
 
                         <li>
-                            <a onClick={() => handleLink("/")}>Sair</a>
+                            <a onClick={() => handleLogout()}>Sair</a>
                         </li>
                     </ul>
                 </Navigation>

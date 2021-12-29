@@ -8,10 +8,11 @@ import Logo from "../../components/Logo/index"
 
 import PagesContainer from "../../components/PagesContainer/index";
 
-import { useModal } from "../../providers/ModalProvider";
+import { useAuth } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { handleShowModal } = useModal();
+
+  const { handleLogin, buttonChildren } = useAuth();
 
   return (
     <>
@@ -25,8 +26,8 @@ const Login = () => {
 
           <FormInput type="password" name="password" placeholder="Senha" />
 
-          <Button onClick={() => handleShowModal("Preencha todos os campos")}>
-            Entrar
+          <Button onClick={() => handleLogin()}>
+            {buttonChildren}
           </Button>
 
           <FormLink link="/register">Ainda não tem um cadastro?</FormLink>
