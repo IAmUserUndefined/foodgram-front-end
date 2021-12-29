@@ -8,7 +8,11 @@ import Logo from "../../components/Logo/index"
 
 import PagesContainer from "../../components/PagesContainer/index";
 
+import { useModal } from "../../providers/ModalProvider";
+
 const Login = () => {
+  const { handleShowModal } = useModal();
+
   return (
     <>
       <PagesContainer>
@@ -21,7 +25,7 @@ const Login = () => {
 
           <FormInput type="password" name="password" placeholder="Senha" />
 
-          <Button>
+          <Button onClick={() => handleShowModal("Preencha todos os campos")}>
             Entrar
           </Button>
 

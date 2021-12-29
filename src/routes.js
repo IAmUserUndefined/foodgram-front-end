@@ -10,6 +10,7 @@ import ConfigUser from './pages/ConfigUser';
 import RecoverPassword from './pages/RecoverPassword';
 import VerifyEmail from './pages/VerifyEmail';
 import VerifyEmailUpdate from './pages/VerifyEmailUpdate';
+import Modal from './pages/Modal';
 
 export const AppRoutes = () => {
     return ( 
@@ -24,6 +25,16 @@ export const AppRoutes = () => {
                 <Route path="/recover-password" exact element={<RecoverPassword />} />
                 <Route path="/verify-email" exact element={<VerifyEmail />} />
                 <Route path="/update-email" exact element={<VerifyEmailUpdate />} />
+            </Routes>
+        </>
+     );
+}
+
+export const ModalRoute = () => {
+    return ( 
+        <>
+            <Routes>
+                <Route path="/*" exact element={<Modal />} />
             </Routes>
         </>
      );
