@@ -2,15 +2,15 @@ import React from 'react';
 
 import ContainerPhoto from './styles';
 
-const Photo = () => {
+const Feed = ({ url, author }) => {
     return ( 
         <>
             <ContainerPhoto>
                 <span>Por: João Pedro</span>
-                <img src="images/pizza-demo.jpg" alt="" />
+                <img src={url} alt="Foto de um alimento" />
             </ContainerPhoto>
         </>
      );
 }
  
-export default Photo;
+export default Feed;
