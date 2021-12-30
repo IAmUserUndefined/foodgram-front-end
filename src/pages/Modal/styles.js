@@ -24,7 +24,7 @@ export const ModalContainer = styled.div`
 `;
 
 export const ModalStyle = styled.div`
-  min-width: 300px;
+  min-width: 250px;
   width: 380px;
   height: 225px;
   margin-top: 120px;
@@ -38,10 +38,20 @@ export const ModalStyle = styled.div`
   position: relative;
   animation: modal 0.6s;
 
+  @media (max-width: 576px) {
+    min-width: 250px;
+    width: 300px;
+    height: 200px;
+  }
+
   > h3 {
     color: #000;
     font-size: 2rem;
     text-align: center;
+
+    @media (max-width: 576px) {
+      font-size: 1.2rem;
+    }
   }
 
   > button {
