@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const VerifyEmailTitleContainer = styled.div`
-    margin: auto;
     max-width: 600px;
+    margin: 2rem auto 0 auto;
     padding: 2rem;
     background-color: #fff;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 2rem;
 
     > div h1 {
         font-size: 2.5rem;
@@ -16,7 +16,7 @@ const VerifyEmailTitleContainer = styled.div`
     }
 
     > div + div {
-        margin-top: 3rem;
+        margin: 3rem auto 0 auto;
     }
 
 `;

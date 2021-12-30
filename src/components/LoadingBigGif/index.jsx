@@ -1,11 +1,9 @@
 import React from 'react';
 
-import LoadingBigGifContainer from './styles';
+import LoadingBigGifStyle from './styles';
 
 const LoadingBigGif = () => {
-    return <LoadingBigGifContainer>
-        <div></div>
-    </LoadingBigGifContainer>;
+    return <LoadingBigGifStyle />
 }
 
 export default LoadingBigGif;
