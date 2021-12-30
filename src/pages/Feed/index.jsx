@@ -40,7 +40,7 @@ const Feed = () => {
             <PaddingContainer>
                 {
                     photos.map((photo) => (
-                        <FeedPhoto key={photo.id} url={photo.url} name={photo.author} />
+                        <FeedPhoto key={photo.id} url={photo.url} author={photo.author} />
                     ))
                 }
             </PaddingContainer>

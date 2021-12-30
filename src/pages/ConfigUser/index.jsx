@@ -21,6 +21,7 @@ const ConfigUser = () => {
   const { handleShowModal } = useModal();
   const { handleLogout } = useAuth();
   const [buttonChidrenEmail, setButtonChildrenEmail] = useState("Atualizar Email");
+  const [buttonChidrenName, setButtonChildrenName] = useState("Atualizar Nome");
   const [buttonChidrenPassword, setButtonChildrenPassword] = useState("Atualizar Senha");
   const [buttonChidrenDelete, setButtonChildrenDelete] = useState("Excluir Usuário");
 
@@ -58,6 +59,35 @@ const ConfigUser = () => {
     email.value = "";
 
     setButtonChildrenEmail("Atualizar Email");
+  };
+
+  const handleUpdateName = async () => {
+    setButtonChildrenName(<LoadingGif />);
+
+    const form = document.forms.updateName;
+
+    let { name } = form;
+
+    if (!name.value) {
+      setButtonChildrenName("Atualizar Email");
+      return handleShowModal("Preencha o campo de nome");
+    }
+
+    await api
+      .patch("/update-name", {
+        name: name.value,
+      })
+      .then(({ data }) => {
+        handleShowModal(data.response);
+      })
+      .catch(({ response }) =>
+        response
+          ? handleShowModal(response.data.response)
+          : handleShowModal("Erro no Servidor")
+      );
+
+    name.value = "";
+    setButtonChildrenName("Atualizar Nome");
   };
 
   const handleUpdatePassword = async () => {
@@ -184,6 +214,18 @@ const ConfigUser = () => {
               <FormInput type="email" placeholder="Email" name="email" />
 
               <Button onClick={() => handleUpdateEmail()}>{buttonChidrenEmail}</Button>
+
+            </Form>
+          </FormContainer>
+
+          <FormContainer>
+            <Form name="updateName">
+                
+              <h2>Atualizar Nome</h2>
+
+              <FormInput type="text" placeholder="Nome" name="name" />
+
+              <Button onClick={() => handleUpdateName()}>{buttonChidrenName}</Button>
 
             </Form>
           </FormContainer>
