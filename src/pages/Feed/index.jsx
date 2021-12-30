@@ -49,7 +49,7 @@ const Feed = () => {
             <PaddingContainer>
                 {
                         photos.map((photo) => (
-                            <FeedPhoto key={photo.id} url={photo.url} />
+                            <FeedPhoto key={photo.id} url={photo.url} userId={photo.userId} />
                         ))
                 }
             </PaddingContainer>

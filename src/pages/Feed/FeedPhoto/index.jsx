@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState, useEffect } from 'react';
 
 import ContainerPhoto from './styles';
 
 import api from "../../../services/api";
 
-const Feed = ({ url }) => {
+const FeedPhoto = ({ url, userId }) => {
     const [name, setName] = useState("");
 
     useEffect(() => {
@@ -13,10 +15,12 @@ const Feed = ({ url }) => {
 
         const fetchPhotos = async () => {
             await api
-            .get("/get-name")
+            .post("/get-name", {
+                userId: userId,
+              })
             .then(({ data }) => (mounted ? setName(data.response) : null))
             .catch(({ response }) =>
-                response === undefined ? console.log("Erro no servido") : null
+                response === undefined ? console.log("Erro no servidor") : null
             );
         };
   
@@ -37,4 +41,4 @@ const Feed = ({ url }) => {
      );
 }
  
-export default Feed;
+export default FeedPhoto;
