@@ -1,10 +1,10 @@
 # Foodgram - Front-end
 
-# 🔗 Foodgram
+# <a href="https://foodgram-jp-dev.herokuapp.com/">🔗 Foodgram</a>
 <p>🚀 Aplicação voltada para armazenamento e publicação de fotos voltadas a gastronomia</p>
 
 # Status da Aplicação
-<p>🚧 Aplicação em Desenvolvimento</p>
+<p>🔥 Aplicação Finalizada</p>
 
 # Features
 - Cadastro de Usuário
@@ -21,3 +21,24 @@
 - Create React App
 - Styled Components
 - Javascript
+
+# Tecnologias
+- React JS
+- Create React App
+- Styled Components
+- Javascript
+
+# Instalação
+Você precisa ter instalado em sua máquina o Node, GIT e o pacote Yarn instalado de forma global, após isso rode o seguinte comando: 
+```sh
+  git clone https://github.com/JPedro910/my-photos-front-end.git
+```
+Após clonar a aplicação, entre em sua pasta e rode o seguinte comando:
+```sh
+  yarn install
+```
+# Execução
+Após a execução da instalação, rode o seguinte comando:
+```sh
+  yarn start
+```
