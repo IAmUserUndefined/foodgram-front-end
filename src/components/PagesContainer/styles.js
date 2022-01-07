@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PagesContainerStyle = styled.div`
+const PagesContainerStyle = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;

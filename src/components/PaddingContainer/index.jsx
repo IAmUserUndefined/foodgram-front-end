@@ -3,9 +3,9 @@ import React from 'react';
 const PaddingContainer = ({ children }) => {
     return ( 
         <>
-            <div style={{ padding: ".9rem" }}>
+            <main style={{ padding: ".9rem" }}>
                 { children }
-            </div>
+            </main>
         </>
      );
 }

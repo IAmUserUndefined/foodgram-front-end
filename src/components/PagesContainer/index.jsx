@@ -10,7 +10,7 @@ const PagesContainer = ( { children } ) => {
                     { children }
                 </div>
 
-                <div id="container-img">
+                <div>
                     <img src="images/banner.svg" alt="Ilustração de uma pessoa com um sorvete gigante na palma da mão" />
                 </div>
             </PagesContainerStyle>
