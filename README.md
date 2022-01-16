@@ -1,6 +1,6 @@
 # Foodgram - Front-end
 
-# <a href="https://foodgram-jp-dev.herokuapp.com/">🔗 Foodgram</a>
+# <a href="https://foodgramjpdev.herokuapp.com/">🔗 Foodgram</a>
 <p>🚀 Aplicação voltada para armazenamento e publicação de fotos voltadas a gastronomia</p>
 
 # Status da Aplicação
