@@ -46,7 +46,7 @@ export const ModalStyle = styled.div`
 
   > h3 {
     color: #000;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
 
     @media (max-width: 576px) {
@@ -67,11 +67,5 @@ export const ModalStyle = styled.div`
     border-radius: 100%;
     font-size: 1.7rem;
     font-weight: bold;
-
-    &:hover {
-      color: #e02041;
-      background-color: #000;
-      transition: 0.6s;
-    }
   }
 `;
