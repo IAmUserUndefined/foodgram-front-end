@@ -22,16 +22,9 @@ const Feed = () => {
         const fetchPhotos = async () => {
             await api
             .get("/photo")
-            .then(({ data }) => {
-                if(mounted) {
-                    if(data.response.length === 0)
-                        return handleShowModal("Não existem fotos para serem apresentadas");
-
-                    return setPhotos(data.response);
-                }else{
-                    return false;
-                }
-            })
+            .then(({ data }) => (
+                mounted ? setPhotos(data.response) : null
+            ))
             .catch(({ response }) =>
                 response === undefined ? handleShowModal("Erro no servidor, as fotos não podem ser apresentadas") : null
             );
