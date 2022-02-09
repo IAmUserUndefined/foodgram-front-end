@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import PublicRoute from "./components/PublicRoute/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 
+import Login from './pages/Login';
 import Modal from './pages/Modal';
 
 export const AppRoutes = () => {
@@ -11,7 +12,7 @@ export const AppRoutes = () => {
         <>
             <Routes>
                 <Route path="/" element={<PublicRoute />}>
-                    <Route path="/" element={false} />
+                    <Route path="/" element={<Login />} />
                 </Route>
             </Routes>
         </>
