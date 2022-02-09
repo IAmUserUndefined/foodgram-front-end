@@ -1,4 +1,8 @@
-import axios from "axios";
+import axios, { HeadersDefaults } from "axios";
+
+export interface CommonHeaderProperties extends HeadersDefaults {
+  Authorization: string | null | undefined; 
+}
 
 const api = axios.create({
   baseURL: "localhost:3333",
