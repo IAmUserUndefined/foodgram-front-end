@@ -5,14 +5,19 @@ import PublicRoute from "./components/PublicRoute/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Modal from './pages/Modal';
 
 export const AppRoutes = () => {
     return ( 
         <>
             <Routes>
-                <Route path="/" element={<PublicRoute />}>
+                <Route path="/" element={<PublicRoute />} >
                     <Route path="/" element={<Login />} />
+                </Route>
+
+                <Route path="/register" element={<PublicRoute />} >
+                    <Route path="/register" element={<Register />} />
                 </Route>
             </Routes>
         </>
