@@ -10,11 +10,11 @@ import GlobalStyle from "./styles/global"
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <AuthProvider>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
-    </AuthProvider>
+    <ModalProvider>
+      <AuthProvider>
+          <App />
+      </AuthProvider>
+    </ModalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

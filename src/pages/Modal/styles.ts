@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ModalContainer = styled.div`
+type ModalContainerTypes = {
+  display: string
+}
+
+export const ModalContainer = styled.div<ModalContainerTypes>`
   @keyframes modal {
     from {
       opacity: 0;
