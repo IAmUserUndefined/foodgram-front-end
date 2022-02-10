@@ -1,3 +1,4 @@
+import "dotenv/config";
 import axios, { HeadersDefaults } from "axios";
 
 export interface CommonHeaderProperties extends HeadersDefaults {
@@ -5,7 +6,7 @@ export interface CommonHeaderProperties extends HeadersDefaults {
 }
 
 const api = axios.create({
-  baseURL: "localhost:3333",
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     "Authorization": `Bearer ${localStorage.getItem("tokenFoodgram")}`
   }

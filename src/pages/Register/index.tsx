@@ -48,7 +48,7 @@ const Register = () => {
         passwordConfirm: passwordConfirm.value,
       })
       .then(({ data }) => {
-
+        setFormValues({});
         handleShowModal(data.response);
       })
       .catch(({ response }) =>

@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 type PaddingContainerTypes = {
-    children: ReactElement
+    children: ReactElement | ReactElement[]
 }
 
 const PaddingContainer = ({ children }: PaddingContainerTypes) => {

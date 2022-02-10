@@ -21,7 +21,8 @@ const PrivateRoute = () => {
   if(expirySession) {
     setExpirySession(false);
     handleLogout();
-    return handleShowModal("Sessão Expirada");
+    handleShowModal("Sessão Expirada");
+    return <Navigate to="/" />
   }
 
   if (!authenticated) {

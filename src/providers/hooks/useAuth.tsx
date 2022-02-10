@@ -82,7 +82,6 @@ const useAuth = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("tokenExpiryTime");
     api.defaults.headers = { "Authorization": undefined } as CommonHeaderProperties;
-    history.push("/");
   };
 
   return { 
