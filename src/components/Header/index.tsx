@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
+
+import LogoImage from "../../assets/images/logo.png";
 
 import { HeaderStyle, IconMenu, Navigation, ContainerImage } from "./styles";
 
@@ -27,7 +28,7 @@ const Header = () => {
         <>
             <HeaderStyle>
                 <ContainerImage>
-                    <img src="images/logo.png" alt="Logo da aplicação" />
+                    <img src={LogoImage} alt="Logo da aplicação" />
                 </ContainerImage>
                 <IconMenu>
                     {icon}

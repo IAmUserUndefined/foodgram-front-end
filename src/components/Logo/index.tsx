@@ -1,9 +1,11 @@
 import React from 'react';
 
+import LogoImage from "../../assets/images/logo.png";
+
 const Logo = () => {
     return ( 
         <div>
-            <img src="images/logo.png" alt="Logo da aplicação" style={{ width: "60%" }}/>
+            <img src={LogoImage} alt="Logo da aplicação" style={{ width: "60%" }}/>
         </div>
      );
 }
