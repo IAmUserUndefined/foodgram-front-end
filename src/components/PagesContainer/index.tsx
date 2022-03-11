@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
 
@@ -18,11 +20,9 @@ const PagesContainer = ( { children }: PagesContainerTypes ) => {
                 </div>
 
                 <div>
-                    <Image 
+                    <img 
                         src="/images/banner.svg" 
                         alt="Ilustração de uma pessoa com um sorvete gigante na palma da mão"  
-                        width={580} 
-                        height={580} 
                     />
                 </div>
             </PagesContainerStyle>
