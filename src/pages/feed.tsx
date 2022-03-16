@@ -3,7 +3,6 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
-import PrivateRoute from "../components/PrivateRoute";
 import Header from "../components/Header";
 import PaddingContainer from "../components/PaddingContainer";
 
@@ -16,9 +15,10 @@ import { PhotoTypes } from "../types";
 
 type FeedTypes = {
     photos: PhotoTypes[];
+    names: string[];
 }
 
-const Feed = ({ photos }: FeedTypes) => {
+const Feed = ({ photos, names }: FeedTypes) => {
 
     return ( 
         <>
@@ -26,8 +26,8 @@ const Feed = ({ photos }: FeedTypes) => {
             
             <PaddingContainer>
                 {
-                        photos.map((photo: PhotoTypes) => (
-                            <FeedPhoto key={photo.id} photo={photo} />
+                        photos.map((photo: PhotoTypes, i: number) => (
+                            <FeedPhoto key={photo.id} photo={photo} name={names[i]} />
                         ))
                 }
             </PaddingContainer>
@@ -40,15 +40,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if(auth(context))
         return auth(context);
   
-    const fetch = await api(context)
-                        .get("/photo")
-                        .then(({ data }) => data);
+    const fetchPhotos = await api(context)
+                                .get("/photo")
+                                .then(({ data }) => data);
   
-    const photos = await fetch.response;
+    const photos: PhotoTypes[] = await fetchPhotos.response;
+    const names: string[] = [];
+
+    for(let i = 0; i < photos.length; i++) {
+        const { ["response"]: name } = await api(context)
+                                                .post("/get-name", { userId: photos[i].userId })
+                                                .then(({ data }) => data);
+
+        names.push(name);
+    }
   
     return {
           props: {
-            photos
+            photos,
+            names
         }
     }
 }

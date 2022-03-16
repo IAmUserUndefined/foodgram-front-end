@@ -1,46 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React from 'react';
 
 import ContainerPhoto from './styles';
-
-import api from "../../services/api/clientApi";
 
 import { PhotoTypes } from "../../types";
 
 type FeedPhotoTypes = {
     photo: PhotoTypes;
+    name: string;
 }
 
-const FeedPhoto = ({ photo }: FeedPhotoTypes) => {
+const FeedPhoto = ({ photo, name }: FeedPhotoTypes) => {
     
-    const { url, userId } = photo
-    const [name, setName] = useState("");
-
-    useEffect(() => {
-        let mounted = true;
-
-        const fetchPhotos = async () => {
-            await api
-            .post("/get-name", {
-                userId: userId,
-              })
-            .then(({ data }) => (mounted ? setName(data.response) : null))
-            .catch(({ response }) =>
-                response === undefined ? console.log("Erro no servidor") : null
-            );
-        };
-  
-        fetchPhotos();
-
-        return () => {
-            mounted = false;
-            return;
-        };
-
-    }, []);
+    const { url } = photo;
 
     return ( 
         <>
