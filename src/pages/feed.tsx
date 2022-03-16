@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 
 import Header from "../components/Header";
@@ -11,14 +11,24 @@ import FeedPhoto from "../components/FeedPhoto";
 import api from "../services/api/serverApi";
 import auth from "../services/auth";
 
+import { useModal } from '../providers/ModalProvider';
+
 import { PhotoTypes } from "../types";
 
 type FeedTypes = {
     photos: PhotoTypes[];
     names: string[];
+    error: string;
 }
 
-const Feed = ({ photos, names }: FeedTypes) => {
+const Feed = ({ photos, names, error }: FeedTypes) => {
+    const { handleShowModal } = useModal();
+
+    useEffect(() => {
+        const modal = () => error ? handleShowModal(error) : null;
+
+        modal();
+    }, []);
 
     return ( 
         <>
@@ -40,25 +50,35 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if(auth(context))
         return auth(context);
   
-    const fetchPhotos = await api(context)
+    const { ["response"]: fetchPhotos, error } = await api(context)
                                 .get("/photo")
-                                .then(({ data }) => data);
+                                .then(({ data }) => data)
+                                .catch(({ response }) => 
+                                    response === undefined ? {
+                                        response: [],
+                                        error: "Erro no servidor, as fotos não podem ser apresentadas"
+                                    } : null
+                                );
   
-    const photos: PhotoTypes[] = await fetchPhotos.response;
+    const photos: PhotoTypes[] = await fetchPhotos;
     const names: string[] = [];
 
-    for(let i = 0; i < photos.length; i++) {
-        const { ["response"]: name } = await api(context)
-                                                .post("/get-name", { userId: photos[i].userId })
-                                                .then(({ data }) => data);
+    if(photos.length > 0) {
 
-        names.push(name);
+        for(let i = 0; i < photos.length; i++) {
+            const name = await api(context)
+                                        .post("/get-name", { userId: photos[i].userId })
+                                        .then(({ data }) => data.response);
+    
+            names.push(name);
+        }
     }
   
     return {
           props: {
             photos,
-            names
+            names,
+            error: error || null
         }
     }
 }

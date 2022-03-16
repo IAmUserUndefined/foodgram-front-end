@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { GetServerSideProps } from "next/types";
 import { useRouter } from "next/router";
 
@@ -22,12 +22,19 @@ import { PhotoTypes } from "../types";
 
 type PhotosTypes = {
   photos: PhotoTypes[];
+  error: string;
 }
 
-const Photos = ({ photos }: PhotosTypes) => {
+const Photos = ({ photos, error }: PhotosTypes) => {
 
   const { handleShowModal } = useModal();
   const router = useRouter();
+
+  useEffect(() => {
+    const modal = () => error ? handleShowModal(error) : null;
+
+    modal();
+  }, []);
   
   const onDrop = useCallback(async (acceptedFiles) => {
     if (acceptedFiles[0] === undefined) return null;
@@ -89,16 +96,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if(auth(context))
     return auth(context);
 
-  const fetch = await serverApi(context)
+  const { ["response"]: fetchPhotos, error } = await serverApi(context)
                         .get("/user-photo")
                         .then(({ data }) => data)
-                        .catch((response) => response);
+                        .catch(({ response }) => 
+                            response === undefined ? {
+                                response: [],
+                                error: "Erro no servidor, as fotos não podem ser apresentadas"
+                            } : null
+                        );
 
-  const photos = await fetch.response;
+  const photos = await fetchPhotos;
 
   return {
         props: {
-          photos
+          photos,
+          error: error || null
         }
     }
 }
